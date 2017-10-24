@@ -1,0 +1,16 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ],
+
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    [ "transform-react-jsx", { "pragma": "h" } ]
+  ]
+}
