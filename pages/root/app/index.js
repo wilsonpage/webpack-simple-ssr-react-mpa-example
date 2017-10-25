@@ -12,12 +12,16 @@ export default class AppHome extends Component {
     ]
   }
 
-  render({ name }) {
+  render ({ name }) {
     return (
       <div class={ styles.home }>
         <h1>Home { name }</h1>
-        <Button>Click Me</Button>
+        <Button onClick={ this.onButtonClick }>Click Me</Button>
       </div>
     )
+  }
+
+  onButtonClick () {
+    alert('interactive pages')
   }
 }
