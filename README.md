@@ -1,4 +1,4 @@
-### Webpack server-side (SSR) rendered React multi-page app (MPA) example
+### Webpack Simple Server-Side (SSR) Rendered React Multi-Page App (MPA) Example
 
 > A minimal example of an app that renders React components on the server and 'inflates' (becomes interactive) on the client.
 
