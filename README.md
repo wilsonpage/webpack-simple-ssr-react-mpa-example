@@ -1,12 +1,12 @@
 ### Webpack server-side (SSR) rendered React multi-page app (MPA) example
 
-A minimal example of an app that renders React components on the server and 'inflates' (becomes interactive) on the client.
+> A minimal example of an app that renders React components on the server and 'inflates' (becomes interactive) on the client.
 
 #### Motivation
 
 There are many examples of single page applications (SPA), but for many projects a SPA is overkill, leading to unnecessary work and complexity. We still want rich experiences, but don't care so much about client-side routing.
 
-This project is by no means finished. I hope for others to contribute so that it can improve over time and be an example to others entering what has become a very complex development environment.
+This project is by no means finished. I hope for others to contribute so that it can improve over time and become an example to others entering what has become a very complex development environment.
 
 #### Requirements
 
