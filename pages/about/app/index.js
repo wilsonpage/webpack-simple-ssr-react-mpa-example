@@ -1,17 +1,17 @@
 
-import { h, Component } from 'preact';
-import Button from '../../../components/Button';
+import { h, Component } from 'preact'
+import styles from './styles.css'
 
-import styles from './styles.css?critical';
-// import '../../../components/Button/styles.css?critical';
+export default class AppContact extends Component {
+  static head({ assets: { scripts, styles }}) {
+    return [
+      <title>Contact</title>,
+      <link rel="preload" as="style" href={ styles.external } onload="this.rel='stylesheet'" />,
+      scripts.map((src) => <script defer src={ src } />),
+    ]
+  }
 
-export default class AppAbout extends Component {
   render() {
-    return (
-      <div>
-        <h1>About</h1>
-        <Button>Click me</Button>
-      </div>
-    );
+    return <h1 class={ styles.about }>About</h1>
   }
 }

@@ -1,14 +1,21 @@
 
-/**
- * External Dependencies
- */
+const database = async () => {
+  return {
+    name: 'Wilson',
+  }
+}
 
-import toString from 'preact-render-to-string';
-import { h } from 'preact';
-
-/**
- * Internal Dependencies
- */
-
-import App from './app';
-export default (props) => toString(<App { ...props } />);
+module.exports = ({ render, chunks, publicPath }) => async (req, res) => {
+  res.send(render('home', {
+    assets: {
+      scripts: [
+        `${ publicPath }/${ chunks['commons.js'] }`,
+        `${ publicPath }/${ chunks['contact.js'] }`,
+      ],
+      styles: {
+        external: `${ publicPath }/${ chunks['contact.css'] }`,
+      },
+    },
+    props: await database(),
+  }))
+}
