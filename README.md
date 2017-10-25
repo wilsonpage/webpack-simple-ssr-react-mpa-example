@@ -23,6 +23,8 @@ This project is by no means finished. I hope for others to contribute so that it
 - [x] Support nested pages (eg. `articles/one`, `articles/two`)
 - [x] Dynamically setup server-side routes
 - [ ] Rebuild and restart server on file change
+- [x] Error pages
+- [ ] Decouple views from routes
 
 #### Webpack Dev server
 
