@@ -1,4 +1,4 @@
-### Webpack Simple Server-Side (SSR) Rendered React Multi-Page App (MPA) Example
+## Webpack Simple Server-Side (SSR) Rendered React Multi-Page App (MPA) Example
 
 > A minimal example of an app that renders React components on the server and 'inflates' (becomes interactive) on the client.
 
@@ -22,6 +22,7 @@ This project is by no means finished. I hope for others to contribute so that it
 - [ ] Include example of dynamic (lazy) imported modules
 - [x] Support nested pages (eg. `articles/one`, `articles/two`)
 - [x] Dynamically setup server-side routes
+- [ ] Rebuild and restart server on file change
 
 #### Webpack Dev server
 
