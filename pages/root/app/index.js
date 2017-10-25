@@ -1,17 +1,14 @@
 
 import styles from './styles.css'
-import Button from 'components/Button'
+import Button from 'lib/components/Button'
 import { h, Component } from 'preact'
 
 import './critical.css'
 
 export default class AppHome extends Component {
-  static head({ assets: { scripts, styles }}) {
+  static head() {
     return [
       <title>Home</title>,
-      <style dangerouslySetInnerHTML={{ __html: styles.inline }} />,
-      <link rel="preload" as="style" href={ styles.external } onload="this.rel='stylesheet'" />,
-      scripts.map((src) => <script defer src={ src } />),
     ]
   }
 

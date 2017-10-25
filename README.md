@@ -20,6 +20,8 @@ This project is by no means finished. I hope for others to contribute so that it
 - [x] Each page component has a dedicated node bundle for SSR
 - [ ] Add a site-global app manifest using [webpack-app-manifest-loader](https://github.com/markdalgleish/web-app-manifest-loader)
 - [ ] Include example of dynamic (lazy) imported modules
+- [x] Support nested pages (eg. `articles/one`, `articles/two`)
+- [x] Dynamically setup server-side routes
 
 #### Webpack Dev server
 

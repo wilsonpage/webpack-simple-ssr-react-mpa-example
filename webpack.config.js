@@ -12,12 +12,12 @@ const glob = require('glob')
 
 const css = {
   critical: new ExtractTextPlugin({
-    filename: '[name].critical.css',
+    filename: '[name]/styles.critical.css',
     allChunks: false,
   }),
 
   nonCritical: new ExtractTextPlugin({
-    filename: '[name].[contenthash:8].css',
+    filename: '[name]/styles.[contenthash:8].css',
     allChunks: false,
   }),
 }
@@ -26,25 +26,25 @@ const css = {
 module.exports = [
   {
     context: __dirname,
-    entry: getEntryPoints('client.js'),
+    entry: getEntryPoints(),
 
     output: {
       path: `${ __dirname }/.build`,
-      filename: '[name].[chunkhash:8].js',
+      filename: '[name]/bundle.[chunkhash:8].js',
     },
 
-    devtool: 'source-maps',
+    // devtool: 'source-maps',
 
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'components'),
+        lib: path.resolve(__dirname, 'lib'),
       },
     },
 
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)?$/,
           exclude: /(node_modules)/,
           use: 'babel-loader',
         },
@@ -95,7 +95,7 @@ module.exports = [
     target: 'node',
     context: __dirname,
     entry: {
-      render: './pages/lib/render.js',
+      'server-render': './lib/server-render.js',
     },
 
     output: {
@@ -108,7 +108,7 @@ module.exports = [
 
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'components'),
+        lib: path.resolve(__dirname, 'lib'),
       },
     },
 
@@ -137,16 +137,11 @@ module.exports = [
   },
 ]
 
-function getEntryPoints (filename) {
-  const pages = glob.sync(`pages/*/${ filename }`)
-
+function getEntryPoints () {
+  const pages = glob.sync(`pages/**/app`)
   return pages.reduce((result, pagePath) => {
-    const key = pagePath
-      .replace('pages/', '')
-      .replace(`/${ filename }`, '')
-
-    result[key] = `${ __dirname }/${ pagePath }`
-
+    const appDir = pagePath.replace('/app', '')
+    result[appDir] = `${ __dirname }/${ appDir }/client.js`
     return result
   }, {})
 }
