@@ -12,12 +12,12 @@ const glob = require('glob')
 
 const css = {
   critical: new ExtractTextPlugin({
-    filename: '[name]/styles.critical.css',
+    filename: '[name]/critical.css',
     allChunks: false,
   }),
 
   nonCritical: new ExtractTextPlugin({
-    filename: '[name]/styles.[contenthash:8].css',
+    filename: '[name]/[contenthash:8].css',
     allChunks: false,
   }),
 }
@@ -30,7 +30,7 @@ module.exports = [
 
     output: {
       path: `${ __dirname }/.build`,
-      filename: '[name]/bundle.[chunkhash:8].js',
+      filename: '[name]/[chunkhash:8].js',
     },
 
     // devtool: 'source-maps',
@@ -95,7 +95,7 @@ module.exports = [
     target: 'node',
     context: __dirname,
     entry: {
-      'render': './views/render.js',
+      'render': './render.js',
     },
 
     output: {
@@ -138,10 +138,13 @@ module.exports = [
 ]
 
 function getEntryPoints () {
-  const views = glob.sync(`views/**/client.js`)
+  const views = glob.sync(`${ __dirname }/apps/**/client.js`)
   return views.reduce((result, viewPath) => {
-    const chunk = viewPath.replace('.js', '')
-    result[chunk] = `${ __dirname }/${ viewPath }`
+    const chunk = viewPath
+      .replace(`${ __dirname }/`, '')
+      .replace('/client.js', '')
+
+    result[chunk] = `${ viewPath }`
     return result
   }, {})
 }

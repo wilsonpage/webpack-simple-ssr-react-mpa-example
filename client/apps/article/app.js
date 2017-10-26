@@ -9,14 +9,11 @@ export default class AppContact extends Component {
     ]
   }
 
-  render() {
+  render({ title, body }) {
     return (
       <div>
-        <h1 class={ styles.articles }>Articles</h1>
-        <ul>
-          <a href="/articles/one">Article One</a>
-          <a href="/articles/two">Article Two</a>
-        </ul>
+        <h1 class={ styles.articles }>{ title }</h1>
+        <p>{ body }</p>
       </div>
     )
   }

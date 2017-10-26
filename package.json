@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config client/webpack.config.js",
     "prestart": "yarn build",
     "start": "node index",
     "clean": "rm -rf .build"

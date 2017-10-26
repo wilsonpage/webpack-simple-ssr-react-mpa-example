@@ -8,6 +8,13 @@ There are many examples of single page applications (SPA), but for many projects
 
 This project is by no means finished. I hope for others to contribute so that it can improve over time and become an example to others entering what has become a very complex development environment.
 
+#### setup
+
+```bash
+$ yarn
+$ yarn start
+```
+
 #### Requirements
 
 - [x] It must dynamically compile a bundle per page

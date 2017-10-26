@@ -15,7 +15,7 @@ import Document from 'lib/components/Document'
 // require.context is a magic webpack require that will import
 // all modules within the given dir maching the given regex
 // https://webpack.js.org/guides/dependency-management/#require-with-expression
-const requirePage = require.context('../', true, /app\.js$/)
+const requirePage = require.context('.', true, /app\.js$/)
 
 module.exports = (key, assets, props = {}) => {
   const requireKey = `./${ key }`
