@@ -95,7 +95,7 @@ module.exports = [
     target: 'node',
     context: __dirname,
     entry: {
-      'server-render': './lib/server-render.js',
+      'render': './views/render.js',
     },
 
     output: {
@@ -138,10 +138,10 @@ module.exports = [
 ]
 
 function getEntryPoints () {
-  const pages = glob.sync(`pages/**/app`)
-  return pages.reduce((result, pagePath) => {
-    const appDir = pagePath.replace('/app', '')
-    result[appDir] = `${ __dirname }/${ appDir }/client.js`
+  const views = glob.sync(`views/**/client.js`)
+  return views.reduce((result, viewPath) => {
+    const chunk = viewPath.replace('.js', '')
+    result[chunk] = `${ __dirname }/${ viewPath }`
     return result
   }, {})
 }
